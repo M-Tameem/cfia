@@ -345,16 +345,7 @@ def nf_load_resources():
         resources['y_test'] = y_test_data
         
         resources['nn_model'] = None
-        # Try loading .keras model first (preferred)
-        if os.path.exists(NF_NN_MODEL_KERAS_PATH):
-            try:
-                resources['nn_model'] = tf.keras.models.load_model(NF_NN_MODEL_KERAS_PATH, compile=False)
-                nn_model_loaded_flag = True
-                st.sidebar.success("NN Model: Loaded from .keras format.")
-            except Exception as e_keras:
-                st.sidebar.warning(f"Failed to load NN from .keras: {e_keras}. Trying .h5 weights.")
-        
-        # Fallback to building model and loading weights from .h5 if .keras failed or not present
+
         if not nn_model_loaded_flag and X_test_tab is not None and X_test_bert is not None and y_test_data is not None:
             if os.path.exists(NF_NN_MODEL_H5_PATH): # Assuming .h5 contains weights if .keras is not used
                 try:
