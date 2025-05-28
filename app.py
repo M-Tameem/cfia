@@ -18,6 +18,8 @@ from tensorflow.keras.models import Sequential # For newfrontend.py
 from tensorflow.keras.layers import Dense, Dropout, Input # For newfrontend.py
 from transformers import DistilBertTokenizer, TFDistilBertModel # For newfrontend.py
 import gc # For newfrontend.py
+import matplotlib.pyplot as plt
+
 
 # --- Environment Variable (from newfrontend.py) ---
 # This should be one of the first things set, before TensorFlow might be imported elsewhere implicitly
