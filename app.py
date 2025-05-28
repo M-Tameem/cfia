@@ -19,6 +19,7 @@ from tensorflow.keras.layers import Dense, Dropout, Input # For newfrontend.py
 from transformers import DistilBertTokenizer, TFDistilBertModel # For newfrontend.py
 import gc # For newfrontend.py
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 # --- Environment Variable (from newfrontend.py) ---
