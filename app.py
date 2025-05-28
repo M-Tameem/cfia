@@ -395,21 +395,43 @@ def nf_load_resources():
         st.exception(e)
     return resources
 
-def nf_generate_bert_embeddings(texts, tokenizer, model, max_len=128):
-    if not texts or (isinstance(texts, list) and len(texts) == 1 and not texts[0]): # Handle empty or list of empty string
-        if model and hasattr(model.config, 'hidden_size'):
-             return np.zeros((len(texts), model.config.hidden_size))
-        else: # Fallback if model or config is not as expected
-             return np.zeros((len(texts), 768)) # Default DistilBERT hidden size
+def nf_generate_bert_embeddings(texts, tokenizer, model):
+    """
+    Generate BERT embeddings for a list of input texts using a tokenizer and a model.
 
-    # Ensure texts is a list of strings
-    if isinstance(texts, pd.Series): texts = texts.tolist()
-    if not isinstance(texts, list): texts = [str(texts)] # Convert single non-list item to list
-    texts = [str(t) if pd.notna(t) else "" for t in texts] # Ensure all are strings, handle NaN
+    Args:
+        texts: A string, list of strings, or pandas Series of strings.
+        tokenizer: The HuggingFace tokenizer (e.g., DistilBertTokenizer).
+        model: The HuggingFace TF model (e.g., TFDistilBertModel).
 
-    inputs = tokenizer(texts, max_length=max_len, padding='max_length', truncation=True, return_tensors='tf')
-    outputs = model(inputs)
-    return outputs.last_hidden_state[:, 0, :].numpy()
+    Returns:
+        A NumPy array of BERT embeddings, or None if input is empty.
+    """
+    import numpy as np
+    import tensorflow as tf
+    import pandas as pd
+
+    # Normalize input to list of strings
+    if isinstance(texts, pd.Series):
+        texts = texts.dropna().astype(str).tolist()
+    elif isinstance(texts, str):
+        texts = [texts]
+    elif isinstance(texts, list):
+        texts = [str(t) for t in texts if t is not None]
+
+    # Check for valid input
+    if not texts or all(not t.strip() for t in texts):
+        return None
+
+    # Tokenize input
+    inputs = tokenizer(texts, padding=True, truncation=True, return_tensors="tf")
+
+    # Generate embeddings (using [CLS] token)
+    outputs = model(**inputs)
+    embeddings = outputs.last_hidden_state[:, 0, :].numpy()
+
+    return embeddings
+
 
 
 # --- Main Application Logic ---
