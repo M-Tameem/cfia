@@ -1,0 +1,184 @@
+Pathogen,Month,TotalRecalls,UniqueBrands,DominantClass,ClassI,ClassII,ClassIII,UnknownClass,ClassI_Pct,ClassII_Pct,ClassIII_Pct,UnknownClass_Pct
+"Chemical (Toxin), Microbiological (Pathogenic) Staphylococcus Aureus",6,2,1,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+"Extraneous Material (Non-Harmful) Insect, Microbiological (Quality) Molds",1,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+"Extraneous Material (Non-Harmful) Insect, Microbiological (Quality) Molds",2,4,1,Class III,0,0,4,0,0.0,0.0,100.0,0.0
+"Extraneous Material (Non-Harmful) Insect, Microbiological (Quality) Molds",6,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+"Extraneous Material (Non-Harmful) Other, Microbiological (Pathogenic) Salmonella",10,5,1,Class II,0,5,0,0,0.0,100.0,0.0,0.0
+Microbiological (Cyclospora),6,4,1,Class II,0,4,0,0,0.0,100.0,0.0,0.0
+Microbiological (Cyclospora),7,17,1,Class II,0,17,0,0,0.0,100.0,0.0,0.0
+Microbiological (Cyclospora),10,1,1,Class I,1,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Other),1,7,3,Class III,0,1,6,0,0.0,14.29,85.71,0.0
+Microbiological (Other),2,46,11,Class II,0,27,19,0,0.0,58.7,41.3,0.0
+Microbiological (Other),3,72,16,Class II,0,57,15,0,0.0,79.17,20.83,0.0
+Microbiological (Other),4,25,16,Class III,4,5,16,0,16.0,20.0,64.0,0.0
+Microbiological (Other),5,43,13,Class II,0,39,4,0,0.0,90.7,9.3,0.0
+Microbiological (Other),6,33,18,Class II,10,15,8,0,30.3,45.45,24.24,0.0
+Microbiological (Other),7,32,17,Class III,6,6,20,0,18.75,18.75,62.5,0.0
+Microbiological (Other),8,28,15,Class III,0,0,28,0,0.0,0.0,100.0,0.0
+Microbiological (Other),9,19,13,Class III,3,0,16,0,15.79,0.0,84.21,0.0
+Microbiological (Other),10,31,11,Class I,22,2,7,0,70.97,6.45,22.58,0.0
+Microbiological (Other),11,11,9,Class III,0,2,9,0,0.0,18.18,81.82,0.0
+Microbiological (Other),12,18,10,Class III,0,7,11,0,0.0,38.89,61.11,0.0
+"Microbiological (Other), Microbiological (Pathogenic) Clostridium Botulinum",8,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Other), Microbiological (Pathogenic) Salmonella",2,20,1,Class I,20,0,0,0,100.0,0.0,0.0,0.0
+"Microbiological (Other), Microbiological (Pathogenic) Salmonella",6,5,1,Class I,5,0,0,0,100.0,0.0,0.0,0.0
+"Microbiological (Other), Microbiological (Pathogenic) Salmonella",11,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Other), Microbiological (Quality) Molds",1,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Pathogenic) Bacillus Cereus,3,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Bacillus Cereus,4,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Bacillus Cereus,5,4,3,Class II,0,4,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Bacillus Cereus,6,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Bacillus Cereus,10,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Bacillus Cereus,11,2,2,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,1,23,8,Class I,23,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,2,61,9,Class I,61,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,3,30,14,Class I,30,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,4,17,12,Class I,17,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,5,13,7,Class I,12,0,1,0,92.31,0.0,7.69,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,6,8,4,Class I,8,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,7,19,5,Class I,19,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,8,45,7,Class I,42,0,3,0,93.33,0.0,6.67,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,9,6,4,Class I,6,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,10,61,14,Class I,59,0,2,0,96.72,0.0,3.28,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,11,22,12,Class I,22,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Botulinum,12,24,8,Class I,24,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Perfringens,2,8,2,Class II,0,8,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Clostridium Perfringens,10,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+"Microbiological (Pathogenic) Clostridium Perfringens, Microbiological (Pathogenic) Staphylococcus Aureus",8,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Pathogenic) Cronobacter Sakazakii,1,3,2,Class I,3,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli,3,5,4,Class I,4,1,0,0,80.0,20.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli,4,84,20,Class II,1,83,0,0,1.19,98.81,0.0,0.0
+Microbiological (Pathogenic) E.Coli,5,65,20,Class II,2,63,0,0,3.08,96.92,0.0,0.0
+Microbiological (Pathogenic) E.Coli,6,65,29,Class II,3,61,1,0,4.62,93.85,1.54,0.0
+Microbiological (Pathogenic) E.Coli,7,20,12,Class I,14,3,3,0,70.0,15.0,15.0,0.0
+Microbiological (Pathogenic) E.Coli,8,3,2,Class II,0,3,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli,9,2,2,Class II,0,1,1,0,0.0,50.0,50.0,0.0
+Microbiological (Pathogenic) E.Coli,10,11,5,Class II,0,10,1,0,0.0,90.91,9.09,0.0
+Microbiological (Pathogenic) E.Coli,11,2,2,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,1,24,12,Class I,24,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,2,40,12,Class I,30,0,10,0,75.0,0.0,25.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,3,217,43,Class I,217,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,4,163,20,Class I,163,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,5,120,40,Class I,120,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,6,13,4,Class I,13,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,8,13,5,Class I,13,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,9,1325,158,Class I,1325,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,10,1439,251,Class I,1439,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,11,83,13,Class I,83,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) E.Coli O157:H7,12,25,11,Class I,25,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Listeria,1,134,27,Class I,133,1,0,0,99.25,0.75,0.0,0.0
+Microbiological (Pathogenic) Listeria,2,142,51,Class I,142,0,0,0,100.0,0.0,0.0,0.0
+Microbiological (Pathogenic) Listeria,3,257,67,Class I,244,2,11,0,94.94,0.78,4.28,0.0
+Microbiological (Pathogenic) Listeria,4,193,45,Class I,162,30,1,0,83.94,15.54,0.52,0.0
+Microbiological (Pathogenic) Listeria,5,154,41,Class I,152,2,0,0,98.7,1.3,0.0,0.0
+Microbiological (Pathogenic) Listeria,6,175,52,Class I,172,3,0,0,98.29,1.71,0.0,0.0
+Microbiological (Pathogenic) Listeria,7,195,41,Class I,193,1,1,0,98.97,0.51,0.51,0.0
+Microbiological (Pathogenic) Listeria,8,125,40,Class I,117,8,0,0,93.6,6.4,0.0,0.0
+Microbiological (Pathogenic) Listeria,9,193,46,Class II,91,102,0,0,47.15,52.85,0.0,0.0
+Microbiological (Pathogenic) Listeria,10,441,78,Class I,413,28,0,0,93.65,6.35,0.0,0.0
+Microbiological (Pathogenic) Listeria,11,422,51,Class I,420,2,0,0,99.53,0.47,0.0,0.0
+Microbiological (Pathogenic) Listeria,12,225,34,Class I,223,2,0,0,99.11,0.89,0.0,0.0
+"Microbiological (Pathogenic) Listeria, Microbiological (Pathogenic) Salmonella",2,2,1,Class I,2,0,0,0,100.0,0.0,0.0,0.0
+"Microbiological (Pathogenic) Listeria, Microbiological (Pathogenic) Salmonella",3,3,1,Class I,3,0,0,0,100.0,0.0,0.0,0.0
+"Microbiological (Pathogenic) Listeria, Microbiological (Pathogenic) Salmonella",10,16,4,Class II,1,15,0,0,6.25,93.75,0.0,0.0
+Microbiological (Pathogenic) Salmonella,1,143,39,Class II,4,139,0,0,2.8,97.2,0.0,0.0
+Microbiological (Pathogenic) Salmonella,2,32,22,Class II,5,26,1,0,15.62,81.25,3.12,0.0
+Microbiological (Pathogenic) Salmonella,3,192,28,Class II,19,149,24,0,9.9,77.6,12.5,0.0
+Microbiological (Pathogenic) Salmonella,4,226,30,Class II,10,213,3,0,4.42,94.25,1.33,0.0
+Microbiological (Pathogenic) Salmonella,5,92,30,Class II,8,84,0,0,8.7,91.3,0.0,0.0
+Microbiological (Pathogenic) Salmonella,6,76,28,Class I,40,35,1,0,52.63,46.05,1.32,0.0
+Microbiological (Pathogenic) Salmonella,7,103,34,Class II,24,74,5,0,23.3,71.84,4.85,0.0
+Microbiological (Pathogenic) Salmonella,8,247,75,Class I,162,85,0,0,65.59,34.41,0.0,0.0
+Microbiological (Pathogenic) Salmonella,9,121,61,Class II,20,101,0,0,16.53,83.47,0.0,0.0
+Microbiological (Pathogenic) Salmonella,10,155,56,Class II,58,97,0,0,37.42,62.58,0.0,0.0
+Microbiological (Pathogenic) Salmonella,11,247,62,Class II,20,223,4,0,8.1,90.28,1.62,0.0
+Microbiological (Pathogenic) Salmonella,12,113,26,Class II,43,70,0,0,38.05,61.95,0.0,0.0
+"Microbiological (Pathogenic) Salmonella, Microbiological (Quality) Generic E.Coli",8,2,1,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Pathogenic) Salmonella, Microbiological (Quality) Generic E.Coli",10,2,1,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,1,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,2,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,3,3,2,Class II,0,3,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,5,29,7,Class II,0,29,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,6,11,6,Class II,0,11,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,7,29,8,Class II,0,29,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,8,8,5,Class II,0,8,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,10,3,3,Class II,0,3,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,11,4,3,Class II,0,4,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Staphylococcus Aureus,12,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Pathogenic) Staphylococcus Aureus, Microbiological (Quality) Generic E.Coli",5,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Pathogenic) Staphylococcus Aureus, Microbiological (Quality) Generic E.Coli",12,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Pathogenic) Vibrio Parahaemolyticus,6,11,9,Class III,0,1,10,0,0.0,9.09,90.91,0.0
+Microbiological (Pathogenic) Vibrio Parahaemolyticus,7,24,7,Class II,0,17,7,0,0.0,70.83,29.17,0.0
+Microbiological (Pathogenic) Vibrio Parahaemolyticus,8,146,40,Class III,0,9,137,0,0.0,6.16,93.84,0.0
+Microbiological (Pathogenic) Vibrio Parahaemolyticus,9,22,9,Class III,0,8,14,0,0.0,36.36,63.64,0.0
+Microbiological (Pathogenic) Vibrio Parahaemolyticus,10,2,1,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Acc,3,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Acc,4,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Acc,5,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Acc,6,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Acc,9,12,4,Class III,0,0,12,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Acc,10,16,1,Class III,0,0,16,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Acc,12,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+"Microbiological (Quality) Acc, Microbiological (Quality) Molds",8,3,1,Class III,0,0,3,0,0.0,0.0,100.0,0.0
+"Microbiological (Quality) Acc, Microbiological (Quality) Yeasts",9,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Coliform,1,4,1,Class III,0,0,4,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Coliform,7,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Coliform,8,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Coliform,9,2,1,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Coliform,10,11,2,Class III,0,0,11,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Coliform,11,2,1,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+"Microbiological (Quality) Coliform, Microbiological (Quality) Generic E.Coli",3,2,1,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Quality) Coliform, Microbiological (Quality) Generic E.Coli",7,2,1,Class II,0,2,0,0,0.0,100.0,0.0,0.0
+"Microbiological (Quality) Coliform, Microbiological (Quality) Molds, Microbiological (Quality) Yeasts",8,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Generic E.Coli,1,4,3,Class II,0,4,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,2,8,3,Class II,0,8,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,3,12,5,Class II,0,12,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,4,8,4,Class II,0,8,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,5,4,3,Class II,0,4,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,6,6,6,Class II,0,5,1,0,0.0,83.33,16.67,0.0
+Microbiological (Quality) Generic E.Coli,7,6,5,Class II,0,6,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,8,12,9,Class II,0,11,1,0,0.0,91.67,8.33,0.0
+Microbiological (Quality) Generic E.Coli,9,8,5,Class II,0,6,2,0,0.0,75.0,25.0,0.0
+Microbiological (Quality) Generic E.Coli,10,17,10,Class II,0,17,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,11,10,4,Class II,0,10,0,0,0.0,100.0,0.0,0.0
+Microbiological (Quality) Generic E.Coli,12,4,4,Class II,0,3,1,0,0.0,75.0,25.0,0.0
+Microbiological (Quality) Molds,1,9,2,Class III,0,0,9,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,2,9,6,Class III,0,0,9,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,3,3,3,Class III,0,0,3,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,4,8,6,Class III,0,0,8,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,5,12,8,Class III,0,0,12,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,6,5,2,Class III,0,0,5,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,7,8,4,Class III,0,0,8,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,8,17,8,Class III,0,0,17,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,9,10,6,Class III,0,1,9,0,0.0,10.0,90.0,0.0
+Microbiological (Quality) Molds,10,14,9,Class III,0,0,14,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,11,36,11,Class III,0,0,36,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Molds,12,34,12,Class III,0,0,34,0,0.0,0.0,100.0,0.0
+"Microbiological (Quality) Molds, Microbiological (Quality) Yeasts",4,13,5,Class III,0,0,13,0,0.0,0.0,100.0,0.0
+"Microbiological (Quality) Molds, Microbiological (Quality) Yeasts",9,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+"Microbiological (Quality) Molds, Microbiological (Quality) Yeasts",11,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,1,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,3,5,4,Class III,0,0,5,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,4,2,1,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,5,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,6,3,2,Class III,0,0,3,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,7,6,4,Class III,0,0,6,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,8,5,3,Class III,0,0,5,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,9,21,6,Class III,0,0,21,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,10,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,11,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Quality) Yeasts,12,7,3,Class III,0,0,7,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),1,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),2,5,4,Class III,0,1,4,0,0.0,20.0,80.0,0.0
+Microbiological (Undetermined),4,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),5,3,2,Class II,0,2,1,0,0.0,66.67,33.33,0.0
+Microbiological (Undetermined),6,20,1,Class III,0,0,20,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),7,1,1,Class II,0,1,0,0,0.0,100.0,0.0,0.0
+Microbiological (Undetermined),8,1,1,Class III,0,0,1,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),9,3,1,Class III,0,0,3,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),10,2,2,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Undetermined),11,37,6,Class III,0,1,36,0,0.0,2.7,97.3,0.0
+Microbiological (Undetermined),12,2,2,Class II,0,1,1,0,0.0,50.0,50.0,0.0
+"Microbiological (Undetermined), Microbiological (Other)",5,2,1,Class III,0,0,2,0,0.0,0.0,100.0,0.0
+Microbiological (Virus) Norovirus,6,7,2,Class I,5,0,2,0,71.43,0.0,28.57,0.0
+Microbiological (Virus) Norovirus,7,2,2,Class I,2,0,0,0,100.0,0.0,0.0,0.0

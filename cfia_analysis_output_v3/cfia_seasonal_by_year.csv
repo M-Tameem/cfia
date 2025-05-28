@@ -1,0 +1,55 @@
+Year,Season,TotalRecalls,UniqueBrands,DominantPathogen,DominantClass,UniqueIncidents,ClassI,ClassII,ClassIII,UnknownClass,ClassI_Pct,ClassII_Pct,ClassIII_Pct,UnknownClass_Pct
+2011,Fall,234,81,microbiological (pathogenic) listeria,Class I,70,206,13,15,0,88.03,5.56,6.41,0.0
+2011,Spring,61,27,microbiological (pathogenic) salmonella,Class I,27,31,29,1,0,50.82,47.54,1.64,0.0
+2011,Summer,133,29,microbiological (pathogenic) listeria,Class I,32,115,9,9,0,86.47,6.77,6.77,0.0
+2011,Winter,72,15,microbiological (pathogenic) listeria,Class I,13,67,3,2,0,93.06,4.17,2.78,0.0
+2012,Fall,1334,176,microbiological (pathogenic) e.coli o157:h7,Class I,189,1295,11,28,0,97.08,0.82,2.1,0.0
+2012,Spring,257,55,microbiological (pathogenic) e.coli o157:h7,Class I,40,243,11,3,0,94.55,4.28,1.17,0.0
+2012,Summer,130,50,microbiological (pathogenic) salmonella,Class I,65,66,59,5,0,50.77,45.38,3.85,0.0
+2012,Winter,49,28,microbiological (pathogenic) e.coli o157:h7,Class II,29,18,19,12,0,36.73,38.78,24.49,0.0
+2013,Fall,260,47,microbiological (pathogenic) listeria,Class I,47,209,29,22,0,80.38,11.15,8.46,0.0
+2013,Spring,99,35,microbiological (pathogenic) salmonella,Class II,35,27,65,7,0,27.27,65.66,7.07,0.0
+2013,Summer,104,42,microbiological (pathogenic) listeria,Class I,41,64,34,6,0,61.54,32.69,5.77,0.0
+2013,Winter,57,22,microbiological (pathogenic) e.coli o157:h7,Class I,16,45,5,7,0,78.95,8.77,12.28,0.0
+2014,Fall,126,33,microbiological (pathogenic) salmonella,Class III,36,35,39,52,0,27.78,30.95,41.27,0.0
+2014,Spring,293,65,microbiological (pathogenic) listeria,Class I,47,227,45,21,0,77.47,15.36,7.17,0.0
+2014,Summer,236,59,microbiological (pathogenic) listeria,Class I,68,152,67,17,0,64.41,28.39,7.2,0.0
+2014,Winter,103,35,microbiological (pathogenic) listeria,Class I,27,78,14,11,0,75.73,13.59,10.68,0.0
+2015,Fall,122,38,microbiological (pathogenic) listeria,Class III,40,41,33,48,0,33.61,27.05,39.34,0.0
+2015,Spring,214,40,microbiological (pathogenic) salmonella,Class II,53,61,142,11,0,28.5,66.36,5.14,0.0
+2015,Summer,219,59,microbiological (pathogenic) vibrio parahaemolyticus,Class III,42,51,22,146,0,23.29,10.05,66.67,0.0
+2015,Winter,92,25,microbiological (pathogenic) salmonella,Class I,31,64,8,20,0,69.57,8.7,21.74,0.0
+2016,Fall,154,28,microbiological (pathogenic) e.coli o157:h7,Class I,34,119,27,8,0,77.27,17.53,5.19,0.0
+2016,Spring,81,36,microbiological (pathogenic) listeria,Class I,45,73,5,3,0,90.12,6.17,3.7,0.0
+2016,Summer,128,49,microbiological (pathogenic) listeria,Class I,46,71,22,35,0,55.47,17.19,27.34,0.0
+2016,Winter,126,22,microbiological (pathogenic) listeria,Class I,23,79,17,30,0,62.7,13.49,23.81,0.0
+2017,Fall,198,39,microbiological (pathogenic) listeria,Class I,48,165,11,22,0,83.33,5.56,11.11,0.0
+2017,Spring,379,95,microbiological (pathogenic) e.coli o157:h7,Class II,60,182,191,6,0,48.02,50.4,1.58,0.0
+2017,Summer,149,67,microbiological (pathogenic) e.coli,Class II,71,28,68,53,0,18.79,45.64,35.57,0.0
+2017,Winter,84,14,microbiological (pathogenic) listeria,Class I,11,78,1,5,0,92.86,1.19,5.95,0.0
+2018,Fall,137,38,microbiological (pathogenic) listeria,Class I,33,74,53,10,0,54.01,38.69,7.3,0.0
+2018,Spring,300,46,microbiological (pathogenic) e.coli o157:h7,Class I,45,277,22,1,0,92.33,7.33,0.33,0.0
+2018,Summer,46,23,microbiological (pathogenic) salmonella,Class I,27,22,21,3,0,47.83,45.65,6.52,0.0
+2018,Winter,86,34,microbiological (pathogenic) listeria,Class I,47,61,21,4,0,70.93,24.42,4.65,0.0
+2019,Fall,1859,286,microbiological (pathogenic) e.coli o157:h7,Class I,296,1723,132,4,0,92.68,7.1,0.22,0.0
+2019,Spring,86,28,microbiological (pathogenic) salmonella,Class II,34,26,31,29,0,30.23,36.05,33.72,0.0
+2019,Summer,46,24,microbiological (pathogenic) listeria,Class I,24,26,11,9,0,56.52,23.91,19.57,0.0
+2019,Winter,70,27,microbiological (other),Class II,29,29,36,5,0,41.43,51.43,7.14,0.0
+2020,Fall,113,35,microbiological (pathogenic) salmonella,Class II,22,18,91,4,0,15.93,80.53,3.54,0.0
+2020,Spring,31,13,microbiological (quality) generic e.coli,Class II,14,7,18,6,0,22.58,58.06,19.35,0.0
+2020,Summer,185,37,microbiological (pathogenic) salmonella,Class I,44,154,28,3,0,83.24,15.14,1.62,0.0
+2020,Winter,63,22,microbiological (pathogenic) listeria,Class I,18,39,11,13,0,61.9,17.46,20.63,0.0
+2021,Fall,115,46,microbiological (pathogenic) salmonella,Class I,52,60,51,4,0,52.17,44.35,3.48,0.0
+2021,Spring,16,11,microbiological (pathogenic) clostridium botulinum,Class III,12,6,3,7,0,37.5,18.75,43.75,0.0
+2021,Summer,116,30,microbiological (pathogenic) listeria,Class I,35,61,53,2,0,52.59,45.69,1.72,0.0
+2021,Winter,65,20,microbiological (pathogenic) listeria,Class I,22,50,7,8,0,76.92,10.77,12.31,0.0
+2022,Fall,58,33,microbiological (pathogenic) listeria,Class I,17,33,22,3,0,56.9,37.93,5.17,0.0
+2022,Spring,249,34,microbiological (pathogenic) salmonella,Class II,49,2,223,24,0,0.8,89.56,9.64,0.0
+2022,Summer,49,19,microbiological (other),Class I,25,19,19,11,0,38.78,38.78,22.45,0.0
+2022,Winter,99,26,microbiological (pathogenic) salmonella,Class I,23,59,37,3,0,59.6,37.37,3.03,0.0
+2023,Fall,149,34,microbiological (pathogenic) salmonella,Class II,38,5,136,8,0,3.36,91.28,5.37,0.0
+2023,Spring,20,14,microbiological (other),Class II,14,4,9,7,0,20.0,45.0,35.0,0.0
+2023,Summer,31,18,microbiological (virus) norovirus,Class I,19,19,8,4,0,61.29,25.81,12.9,0.0
+2023,Winter,124,24,microbiological (pathogenic) listeria,Class I,29,80,39,5,0,64.52,31.45,4.03,0.0
+2024,Spring,5,5,microbiological (pathogenic) listeria,Class I,5,2,1,2,0,40.0,20.0,40.0,0.0
+2024,Winter,100,22,microbiological (pathogenic) salmonella,Class II,17,15,84,1,0,15.0,84.0,1.0,0.0

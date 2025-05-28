@@ -1,0 +1,33 @@
+Advanced CFIA Food Recall Analysis Summary (V3)
+============================================================
+Analysis Date: 2025-05-27 03:41:50
+Data Source: cfiadata.XLSX
+------------------------------------------------------------
+Total Records Analyzed: 9,712
+Date Range: 2011-04-03 to 2024-03-28
+Unique Brands: 1,841
+Unique Incidents: 2,276
+
+--- Recall Class Breakdown ---
+  Class I: 6,761 (69.6%)
+  Class II: 2,166 (22.3%)
+  Class III: 785 (8.1%)
+
+--- Top 5 Brands by Recall Count ---
+  Ryding-Regency Meat Packers Ltd.: 363 recalls
+  Est 38: 247 recalls
+  None / Aucune: 233 recalls
+  Safeway: 198 recalls
+  Aucun (Metro, Super C, Richelieu, Ami): 129 recalls
+
+--- Insights from Incident (Batch) Analysis ---
+  Average items per incident: 4.3
+  Average brands per incident: 1.4
+  Max brands in a single incident: 27
+  * This highlights that many recalls are complex, multi-brand events.
+
+--- Potential Research/ML Questions ---
+  * Can incident size/complexity predict recall class or duration?
+  * Do brands involved in multi-brand incidents have a higher future recall risk?
+  * Which features (pathogen, season, brand history, incident size) are most predictive of Class I recalls?
+============================================================
