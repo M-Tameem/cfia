@@ -1,22 +1,32 @@
 #!/usr/bin/env python3
 """
-Advanced CFIA Food Recall Analysis Script - V3
-==============================================
+CFIA Food Recall Data Analysis Pipeline
+========================================
 
-This script performs comprehensive analysis of standardized CFIA recall data.
-It leverages the known data structure and batch-nature of recalls to generate
-research-focused insights, ML-ready features emphasizing generalization,
-and data for network analysis.
+Performs comprehensive analysis of CFIA recall data exported from the
+official Excel dataset. Generates research-focused CSVs for temporal trends,
+brand behavior, pathogen patterns, incident-level summaries, and an
+ML-ready feature set with incident-level context merged in.
 
 Requirements:
     pip install pandas numpy openpyxl scikit-learn
 
 Usage:
-    python cfia_advanced_analysis_v3.py <excel_file> [output_directory]
+    python scripts/full_analysis_gen.py <excel_file> [output_directory]
 
-Outputs:
-    - (Multiple CSVs as before)
-    - cfia_enhanced_dataset_ml.csv (Now includes incident-level features)
+    Example:
+        python scripts/full_analysis_gen.py data/cfiadata.XLSX output/
+
+Outputs (written to output_directory):
+    - cfia_monthly_analysis.csv       Monthly recall trends
+    - cfia_brand_analysis.csv         Per-brand recall statistics
+    - cfia_seasonal_by_year.csv       Seasonal breakdown by year
+    - cfia_pathogen_month.csv         Pathogen frequency by month
+    - cfia_pathogen_severity.csv      Pathogen frequency by recall class
+    - cfia_incident_analysis.csv      Incident-level aggregations
+    - cfia_brand_connections.csv      Brand co-recall graph edges
+    - cfia_enhanced_dataset_ml.csv    Full ML-ready dataset with engineered features
+    - analysis_summary.txt            High-level summary of key statistics
 """
 
 import pandas as pd
@@ -59,10 +69,11 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s',
                     handlers=[logging.StreamHandler(sys.stdout)])
 
-class CFIAAdvancedAnalyzerV3:
-    """ Analyzes CFIA Food Recall Data - V3 """
+class CFIADataAnalyzer:
+    """Loads, cleans, and analyzes CFIA food recall data from an Excel file."""
+
     def __init__(self, excel_file):
-        logging.info("Starting Advanced CFIA Recall Analysis (V3)...")
+        logging.info("Starting CFIA Recall Analysis...")
         logging.info("=" * 60)
         self.excel_file = excel_file
         self.df = None
@@ -157,7 +168,6 @@ class CFIAAdvancedAnalyzerV3:
         self.df['RECALL_NUMBER'] = self.df['RECALL_NUMBER'].astype(str).str.strip()
         logging.info("Data loading and preparation complete.")
 
-    # --- Analysis Functions (largely unchanged, ensure _get_mode & _get_severity_counts exist) ---
     def _get_mode(self, series):
         """Safely gets the mode (most frequent value) or 'N/A'."""
         modes = series.mode()
@@ -323,7 +333,8 @@ class CFIAAdvancedAnalyzerV3:
         self.ml_df['BRAND_RECALL_FREQ'] = self.ml_df['BRAND_NAME'].map(self.df['BRAND_NAME'].value_counts())
         self.ml_df['PATHOGEN_FREQ'] = self.ml_df['AREA_OF_CONCERN'].map(self.df['AREA_OF_CONCERN'].value_counts())
 
-        # --- *** NEW: Merge Incident Features *** ---
+        # Merge incident-level aggregates (brands involved, severity, duration, etc.)
+        # into the per-row ML dataset so each row carries full incident context.
         if self.incident_df is not None and not self.incident_df.empty:
             logging.info("Merging incident features into ML dataset...")
             incident_features_to_merge = [
@@ -363,13 +374,12 @@ class CFIAAdvancedAnalyzerV3:
         self.ml_df = self.ml_df.drop(columns=['PRODUCT_KEY'], errors='ignore')
         logging.info(f"ML dataset created with {len(self.ml_df.columns)} features.")
 
-    # --- generate_summary_report & save_all_files (largely unchanged) ---
     def generate_summary_report(self, output_dir):
         """Generates a text summary of key findings."""
         logging.info("Generating Summary Report...")
         filepath = os.path.join(output_dir, 'analysis_summary.txt')
         with open(filepath, 'w', encoding='utf-8') as f:
-            f.write("Advanced CFIA Food Recall Analysis Summary (V3)\n")
+            f.write("CFIA Food Recall Analysis Summary\n")
             f.write("="*60 + "\n")
             f.write(f"Analysis Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
             f.write(f"Data Source: {self.excel_file}\n")
@@ -442,18 +452,18 @@ class CFIAAdvancedAnalyzerV3:
         logging.info("Analysis complete.")
 
 def main():
-    """Parses arguments and runs the analysis."""
-    parser = argparse.ArgumentParser(description="Advanced CFIA Food Recall Analysis Script (V3).")
+    """Parses arguments and runs the full analysis pipeline."""
+    parser = argparse.ArgumentParser(description="CFIA Food Recall Data Analysis Pipeline.")
     parser.add_argument("excel_file", help="Path to the input CFIA data Excel file.")
-    parser.add_argument("output_directory", nargs='?', default='./cfia_analysis_output_v3',
-                        help="Directory to save outputs (default: ./cfia_analysis_output_v3).")
+    parser.add_argument("output_directory", nargs='?', default='./output',
+                        help="Directory to save output CSVs (default: ./output).")
     args = parser.parse_args()
 
     if not os.path.exists(args.excel_file):
         logging.error(f"Error: Input file '{args.excel_file}' not found!")
         sys.exit(1)
 
-    analyzer = CFIAAdvancedAnalyzerV3(args.excel_file)
+    analyzer = CFIADataAnalyzer(args.excel_file)
     analyzer.run_complete_analysis(args.output_directory)
     print("\nAnalysis complete. Outputs saved to:", args.output_directory)
 

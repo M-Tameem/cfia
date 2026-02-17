@@ -8,17 +8,17 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
 import os
 from collections import defaultdict, Counter
-import graphviz # For visualization
+import graphviz
 import math
 
 # --- Configuration ---
-DEFAULT_DATA_PATH = './cfia_analysis_output_v3/' # Default path to your script's output
+DEFAULT_DATA_PATH = './output/'
 CONNECTIONS_FILE = 'cfia_brand_connections.csv'
 ML_DATA_FILE = 'cfia_enhanced_dataset_ml.csv'
-PRODUCT_SIMILARITY_THRESHOLD = 0.3 # Adjust as needed
+PRODUCT_SIMILARITY_THRESHOLD = 0.3
 TOP_N_DEFAULT = 10
-NUM_EXAMPLES_TO_SHOW = 5 # For the Examples tab
-NUM_CLUSTERS = 6 # K for K-Means clustering (adjust as needed)
+NUM_EXAMPLES_TO_SHOW = 5
+NUM_CLUSTERS = 6  # K for K-Means clustering
 
 # Ranking Weights (tune these as needed)
 W_CONN = 0.50           # Weight for brand connection strength
@@ -167,7 +167,6 @@ def find_indirect_connections(_brand_graph, selected_brand, top_n=10):
     return indirect_df.sort_values('Connection Score', ascending=False).head(top_n).reset_index(drop=True)
 
 
-# --- Functions from previous version (slightly adapted) ---
 def calculate_suggestion_score(suggestion_details, input_contaminant_query, max_connection_weight):
     score = 0
     norm_conn_weight = (suggestion_details.get("Connection Weight", 0) / max_connection_weight) if max_connection_weight else 0
@@ -201,7 +200,6 @@ def run_association_analysis(selected_brand, input_product_query, input_contamin
                              brand_graph, max_graph_weight, ml_df,
                              tfidf_vectorizer, product_tfidf_matrix, all_product_names_for_tfidf,
                              product_similarity_threshold_input, top_n_suggestions):
-    # (This function remains largely the same as V2, but uses the new scoring)
     if not selected_brand: return pd.DataFrame()
     associated_brands_scores = []
     if selected_brand in brand_graph:
@@ -240,7 +238,6 @@ def run_association_analysis(selected_brand, input_product_query, input_contamin
 
 @st.cache_data
 def get_example_incidents(_ml_df, num_examples=NUM_EXAMPLES_TO_SHOW):
-    # (This function remains the same as V2)
     if _ml_df is None: return []
     incident_groups = _ml_df.groupby('RECALL_NUMBER')
     multi_brand_incidents = []
@@ -259,8 +256,8 @@ def get_example_incidents(_ml_df, num_examples=NUM_EXAMPLES_TO_SHOW):
     return multi_brand_incidents
 
 # --- Main Application UI ---
-st.set_page_config(layout="wide", page_title="CFIA Recall Brand Association Analyzer (V3)")
-st.title("🔬 CFIA Recall - Brand Association Analyzer (V3)")
+st.set_page_config(layout="wide", page_title="CFIA Recall Brand Association Analyzer")
+st.title("CFIA Recall - Brand Association Analyzer")
 
 # --- User Inputs (Sidebar) ---
 data_path = st.sidebar.text_input("Path to CFIA analysis output directory:", DEFAULT_DATA_PATH)
@@ -287,7 +284,7 @@ if brand_graph is not None and ml_df is not None:
     product_similarity_threshold_val = st.sidebar.slider("Product Similarity Threshold:", 0.0, 1.0, PRODUCT_SIMILARITY_THRESHOLD, 0.05)
 
     # --- Tabs ---
-    tab1, tab2, tab3, tab4 = st.tabs(["🔍 Analyzer", "🔗 Indirect Connections", "📊 Brand Profiler", "🧪 Examples"])
+    tab1, tab2, tab3, tab4 = st.tabs(["Analyzer", "Indirect Connections", "Brand Profiler", "Examples"])
 
     with tab1: # Analyzer
         st.header("Direct Association Analyzer")
@@ -359,14 +356,14 @@ if brand_graph is not None and ml_df is not None:
                             product_similarity_threshold_val, top_n_suggestions_val)
                         if not example_results_df.empty:
                             found = [b.title() for b in ex['other_brands_involved'] if b.title() in example_results_df['Associated Brand'].values]
-                            if found: st.success(f"✅ Found known brand(s): **{', '.join(found)}**")
-                            else: st.warning(f"ℹ️ Known brand(s) not found.")
+                            if found: st.success(f"Found known brand(s): **{', '.join(found)}**")
+                            else: st.warning("Known brand(s) not found in top suggestions with current settings.")
                             cols_to_display = ["Score", "Associated Brand", "Recalled Product", "Original Contaminant", "Recall Class", "Recall Date"]
                             st.dataframe(example_results_df[[c for c in cols_to_display if c in example_results_df.columns]], hide_index=True, use_container_width=True)
                         else:
                             st.info("No associations found for this example.")
 else:
-    st.warning("Data could not be loaded. Please check paths and run `cfia_advanced_analysis_v3.py`.")
+    st.warning("Data could not be loaded. Please check paths and run `scripts/full_analysis_gen.py`.")
 
 st.sidebar.markdown("---")
-st.sidebar.markdown("V3 - Added Profiling & Indirect Links.")
+st.sidebar.markdown("Brand Association Analyzer")

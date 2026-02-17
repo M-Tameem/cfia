@@ -28,7 +28,6 @@ import seaborn as sns
 # --- Page Configuration (Call this once at the beginning) ---
 st.set_page_config(
     page_title="CFIA Data Analysis Suite",
-    page_icon="🇨🇦", # Using one of the icons, can be changed
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -436,7 +435,7 @@ def nf_generate_bert_embeddings(texts, tokenizer, model):
 # --- Main Application Logic ---
 
 def render_brand_analyzer():
-    st.title("🔬 CFIA Recall - Brand Association Analyzer")
+    st.title("CFIA Recall - Brand Association Analyzer")
 
     # --- User Inputs (Sidebar for Brand Analyzer) ---
     st.sidebar.header("Brand Analyzer Settings")
@@ -473,7 +472,7 @@ def render_brand_analyzer():
         product_similarity_threshold_val_gt = st.sidebar.slider("Product Similarity Threshold:", 0.0, 1.0, GT_PRODUCT_SIMILARITY_THRESHOLD, 0.05, key="gt_sim_thresh")
 
         # --- Tabs for Brand Analyzer ---
-        tab1, tab2, tab3, tab4 = st.tabs(["🔍 Analyzer", "🔗 Indirect Connections", "📊 Brand Profiler", "🧪 Examples"])
+        tab1, tab2, tab3, tab4 = st.tabs(["Analyzer", "Indirect Connections", "Brand Profiler", "Examples"])
 
         with tab1:
             st.header("Direct Association Analyzer")
@@ -573,8 +572,8 @@ def render_brand_analyzer():
                             
                             if not example_results_df_gt.empty:
                                 found = [b.title() for b in ex['other_brands_involved'] if b.lower() in example_results_df_gt['Associated Brand'].str.lower().values] # Case-insensitive check
-                                if found: st.success(f"✅ Found known co-recalled brand(s) in suggestions: **{', '.join(found)}**")
-                                else: st.warning(f"ℹ️ Known co-recalled brand(s) not found in top suggestions with current settings.")
+                                if found: st.success(f"Found known co-recalled brand(s) in suggestions: **{', '.join(found)}**")
+                                else: st.warning("Known co-recalled brand(s) not found in top suggestions with current settings.")
                                 
                                 cols_to_display_ex = ["Score", "Associated Brand", "Recalled Product", "Original Contaminant", "Recall Class", "Recall Date"]
                                 st.dataframe(example_results_df_gt[[c for c in cols_to_display_ex if c in example_results_df_gt.columns]], hide_index=True, use_container_width=True)
@@ -586,11 +585,11 @@ def render_brand_analyzer():
         st.markdown(f"Expected ML data: `{ml_data_file_path}`")
 
     st.sidebar.markdown("---")
-    st.sidebar.markdown("Brand Analyzer V3 features.")
+    st.sidebar.markdown("Brand Association Analyzer")
 
 
 def render_recall_predictor():
-    st.title("🇨🇦 CFIA Food Recall Class Predictor")
+    st.title("CFIA Food Recall Class Predictor")
     st.markdown("Predict food recall severity using ML trained on CFIA data.")
 
     nf_resources = nf_load_resources() # Load all resources for this app part
@@ -602,7 +601,7 @@ def render_recall_predictor():
 
     # --- Sidebar for Recall Predictor ---
     st.sidebar.header("Recall Predictor Settings")
-    nf_app_mode = st.sidebar.radio("Choose Mode:", ["🔮 Predict New Recall", "📊 Explore Test Data"], key="nf_app_mode")
+    nf_app_mode = st.sidebar.radio("Choose Mode:", ["Predict New Recall", "Explore Test Data"], key="nf_app_mode")
     
     model_choice_disabled = not nf_resources.get('nn_model_loaded_successfully', False)
     
@@ -620,8 +619,8 @@ def render_recall_predictor():
         return
 
 
-    if nf_app_mode == "🔮 Predict New Recall":
-        st.header("🔮 Predict New Recall Class")
+    if nf_app_mode == "Predict New Recall":
+        st.header("Predict New Recall Class")
         all_cols_nf = nf_resources.get('original_training_columns', [])
         if not all_cols_nf:
             st.error("Original training columns not loaded. Cannot proceed with prediction.")
@@ -647,7 +646,7 @@ def render_recall_predictor():
 
 
         with st.form(key="nf_new_recall_form"):
-            st.subheader("📝 Essential Information")
+            st.subheader("Essential Information")
             c1, c2 = st.columns(2)
             common_name_nf = c1.text_input("Product Common Name", "e.g., Organic Blueberries", key="nf_common_name")
             recall_date_nf = c2.date_input("Recall Date", datetime.today(), key="nf_recall_date")
@@ -658,7 +657,7 @@ def render_recall_predictor():
             primary_recall_nf = c3.selectbox("Primary Recall?", primary_opts_nf, index=unknown_primary_index, key="nf_primary_recall").lower()
             depth_input_key_nf = c4.selectbox("Recall Depth", options=depth_display_options, index=unknown_depth_index, key="nf_depth")
 
-            with st.expander("➕ Optional / Advanced Details (Defaults from Training Data Averages if available)"):
+            with st.expander("Optional / Advanced Details (defaults to training data medians if available)"):
                 # Try to get sensible defaults if full_df is loaded
                 defaults = {}
                 if nf_resources.get('full_df') is not None:
@@ -689,7 +688,7 @@ def render_recall_predictor():
                 incident_unique_products = co2.number_input("# Unique Products in Incident", 1, value=defaults.get('Incident_UniqueProducts',1), key="nf_inc_prods")
                 incident_duration_days = co2.number_input("Incident Duration (Days)", 0, value=defaults.get('Incident_DurationDays',0), key="nf_inc_duration")
 
-            submit_button_nf = st.form_submit_button("🚀 Predict Class")
+            submit_button_nf = st.form_submit_button("Predict Class")
 
         if submit_button_nf and common_name_nf:
             input_data_nf = {}
@@ -733,7 +732,7 @@ def render_recall_predictor():
                  if input_df_nf[col].dtype == 'bool' or col.startswith(('Day_','Season_','Depth_')):
                       input_df_nf[col] = input_df_nf[col].astype(float)
             
-            st.markdown("---"); st.subheader("🔍 Prediction Results")
+            st.markdown("---"); st.subheader("Prediction Results")
             try:
                 with st.spinner(f"Predicting with {nf_model_choice}..."):
                     if nf_model_choice == "Random Forest":
@@ -765,8 +764,8 @@ def render_recall_predictor():
         elif submit_button_nf and not common_name_nf:
             st.warning("Product Common Name is required for Recall Prediction.")
 
-    elif nf_app_mode == "📊 Explore Test Data":
-        st.header("📊 Explore Test Data & Model Performance")
+    elif nf_app_mode == "Explore Test Data":
+        st.header("Explore Test Data & Model Performance")
         required_test_data = ['y_test', 'full_df', 'X_test_tfidf', 'X_test_tabular_nn', 'X_test_bert_embeddings']
         if not all(nf_resources.get(k) is not None for k in required_test_data):
             st.warning("Test data, labels, or full dataset not fully loaded for Recall Predictor. Exploration might be limited.")
@@ -776,7 +775,7 @@ def render_recall_predictor():
             y_test_nf = nf_resources['y_test']
             idx_nf = st.slider("Test Sample Index:", 0, len(y_test_nf) - 1, 0, key="nf_test_slider")
             true_label_nf = y_test_nf.iloc[idx_nf] if hasattr(y_test_nf, 'iloc') else y_test_nf[idx_nf]
-            st.subheader(f"🎯 True Class: {NF_LABEL_MAP.get(true_label_nf, 'Unknown')}")
+            st.subheader(f"True Class: {NF_LABEL_MAP.get(true_label_nf, 'Unknown')}")
 
             try: # Display original features
                 original_data_index = y_test_nf.index[idx_nf] if hasattr(y_test_nf, 'index') else idx_nf
@@ -789,7 +788,7 @@ def render_recall_predictor():
                 if nf_resources.get('X_test_tfidf') is not None and nf_resources.get('rf_model') is not None:
                     sample_rf_nf = nf_resources['X_test_tfidf'][idx_nf].reshape(1,-1)
                     pred_rf_nf = nf_resources['rf_model'].predict(sample_rf_nf)[0]
-                    st.markdown(f"🤖 **RF Prediction:** **{NF_LABEL_MAP.get(pred_rf_nf, 'Unknown')}** {'✅ Correct' if pred_rf_nf == true_label_nf else '❌ Incorrect'}")
+                    st.markdown(f"**RF Prediction:** **{NF_LABEL_MAP.get(pred_rf_nf, 'Unknown')}** {'(Correct)' if pred_rf_nf == true_label_nf else '(Incorrect)'}")
                 else: st.error("RF test data or model not loaded for exploration.")
             else: # Neural Network
                 if nf_resources.get('X_test_tabular_nn') is not None and \
@@ -800,7 +799,7 @@ def render_recall_predictor():
                     bert_sample_nf = nf_resources['X_test_bert_embeddings'][idx_nf].reshape(1,-1).astype(np.float32)
                     comb_sample_nf = np.hstack((tab_sample_nf, bert_sample_nf))
                     pred_nn_nf = np.argmax(nf_resources['nn_model'].predict(comb_sample_nf)[0])
-                    st.markdown(f"🧠 **NN Prediction:** **{NF_LABEL_MAP.get(pred_nn_nf, 'Unknown')}** {'✅ Correct' if pred_nn_nf == true_label_nf else '❌ Incorrect'}")
+                    st.markdown(f"**NN Prediction:** **{NF_LABEL_MAP.get(pred_nn_nf, 'Unknown')}** {'(Correct)' if pred_nn_nf == true_label_nf else '(Incorrect)'}")
                 else: st.error("NN test data or model not loaded for exploration.")
 
             if st.button("Show Confusion Matrix (Full Test Set)", key="nf_show_cm_btn"):

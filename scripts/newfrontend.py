@@ -17,15 +17,14 @@ import gc
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="🇨🇦 CFIA Recall Class Predictor",
-    page_icon="🇨🇦",
+    page_title="CFIA Recall Class Predictor",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # --- Filepaths ---
 BASE_PREPROCESS_PATH = "preprocessed_data_recall_class"
-BASE_OUTPUT_PATH = "cfia_analysis_output_v3" # Ensure this dir exists if using this path
+BASE_OUTPUT_PATH = "output"
 
 TFIDF_PREPROCESSOR_PATH = os.path.join(BASE_PREPROCESS_PATH, "tfidf_preprocessor_rc.pkl")
 TABULAR_PREPROCESSOR_NN_PATH = os.path.join(BASE_PREPROCESS_PATH, "tabular_preprocessor_rc.pkl")
@@ -38,7 +37,7 @@ X_TEST_TFIDF_PATH = os.path.join(BASE_PREPROCESS_PATH, "X_test_tfidf_rc.pkl")
 X_TEST_TABULAR_NN_PATH = os.path.join(BASE_PREPROCESS_PATH, "X_test_tabular_rc.pkl")
 X_TEST_BERT_EMBEDDINGS_PATH = os.path.join(BASE_PREPROCESS_PATH, "X_test_bert_embeddings_rc.pkl")
 Y_TEST_PATH = os.path.join(BASE_PREPROCESS_PATH, "y_test_rc.pkl")
-FULL_DATASET_PATH = "cfia_analysis_output_v3/cfia_enhanced_dataset_ml.csv"
+FULL_DATASET_PATH = "output/cfia_enhanced_dataset_ml.csv"
 
 BERT_MODEL_NAME = 'distilbert-base-uncased'
 
@@ -178,15 +177,15 @@ def generate_bert_embeddings(texts, tokenizer, model, max_len=128):
     outputs = model(inputs)
     return outputs.last_hidden_state[:, 0, :].numpy()
 
-st.title("🇨🇦 CFIA Food Recall Class Predictor")
-st.markdown("Welcome! Predict food recall severity using ML trained on CFIA data.")
+st.title("CFIA Food Recall Class Predictor")
+st.markdown("Predict food recall severity using ML models trained on CFIA data.")
 
 # --- Main App Logic ---
 if not resources:
      st.error("Application cannot start: Resources failed to load. Please check file paths and console errors.")
 else:
-    st.sidebar.header("⚙️ Mode & Options")
-    app_mode = st.sidebar.radio("Choose Mode:", ["🔮 Predict New Recall", "📊 Explore Test Data"])
+    st.sidebar.header("Mode & Options")
+    app_mode = st.sidebar.radio("Choose Mode:", ["Predict New Recall", "Explore Test Data"])
     model_choice = st.sidebar.selectbox("Select Prediction Model:",
                                         ["Random Forest", "Neural Network (BERT + Tabular)"],
                                         key="model_selector",
@@ -201,8 +200,8 @@ else:
     #==========================================================================
     # PREDICT NEW RECALL MODE
     #==========================================================================
-    if app_mode == "🔮 Predict New Recall":
-        st.header("🔮 Predict New Recall Class")
+    if app_mode == "Predict New Recall":
+        st.header("Predict New Recall Class")
 
         all_cols = resources['original_training_columns']
 
@@ -223,7 +222,7 @@ else:
         unknown_depth_index = depth_display_options.index('unknown') if 'unknown' in depth_display_options else 0
 
         with st.form(key="new_recall_form"):
-            st.subheader("📝 Essential Information")
+            st.subheader("Essential Information")
             c1, c2 = st.columns(2)
             common_name = c1.text_input("Product Common Name", "e.g., Organic Blueberries", key="common_name")
             recall_date = c2.date_input("Recall Date", datetime.today(), key="recall_date")
@@ -234,7 +233,7 @@ else:
             primary_recall = c3.selectbox("Primary Recall?", primary_opts, index=unknown_primary_index, key="primary_recall").lower()
             depth_input_key = c4.selectbox("Recall Depth", options=depth_display_options, index=unknown_depth_index, key="depth")
 
-            with st.expander("➕ Optional / Advanced Details"):
+            with st.expander("Optional / Advanced Details"):
                 co1, co2 = st.columns(2)
                 days_since_brand = co1.number_input("Days Since Last Brand Recall", 0, value=30, key="days_brand")
                 brand_recall_freq = co1.number_input("Brand Recall Frequency", 0, value=1, key="brand_freq")
@@ -245,7 +244,7 @@ else:
                 incident_unique_products = co2.number_input("# Unique Products in Incident", 1, value=1, key="inc_prods")
                 incident_duration_days = co2.number_input("Incident Duration (Days)", 0, value=0, key="inc_duration")
 
-            submit_button = st.form_submit_button("🚀 Predict Class")
+            submit_button = st.form_submit_button("Predict Class")
 
         if submit_button and common_name:
             input_data = {}
@@ -303,7 +302,7 @@ else:
             st.dataframe(input_df.iloc[:, :50].head())
 
 
-            st.markdown("---"); st.subheader("🔍 Prediction Results")
+            st.markdown("---"); st.subheader("Prediction Results")
             try:
                 with st.spinner(f"Predicting with {model_choice}..."):
                     if model_choice == "Random Forest":
@@ -335,14 +334,14 @@ else:
     #==========================================================================
     # EXPLORE TEST DATA MODE
     #==========================================================================
-    elif app_mode == "📊 Explore Test Data":
-        st.header("📊 Explore Test Data & Model Performance")
+    elif app_mode == "Explore Test Data":
+        st.header("Explore Test Data & Model Performance")
         if not all(resources.get(k) is not None for k in ['y_test', 'full_df', 'X_test_tfidf', 'X_test_tabular_nn', 'X_test_bert_embeddings']):
             st.warning("Test data, labels, or full dataset not fully loaded. Exploration might be limited.")
         else:
             idx = st.slider("Test Sample Index:", 0, len(resources['y_test']) - 1, 0, key="test_slider")
             true_label = resources['y_test'].iloc[idx] if hasattr(resources['y_test'], 'iloc') else resources['y_test'][idx]
-            st.subheader(f"🎯 True Class: {LABEL_MAP.get(true_label, 'Unknown')}")
+            st.subheader(f"True Class: {LABEL_MAP.get(true_label, 'Unknown')}")
 
             try:
                 orig_idx = resources['y_test'].index[idx] if hasattr(resources['y_test'], 'index') else idx
@@ -354,13 +353,13 @@ else:
             if model_choice == "Random Forest":
                 sample = resources['X_test_tfidf'][idx].reshape(1,-1)
                 pred = resources['rf_model'].predict(sample)[0]
-                st.markdown(f"🤖 **RF Prediction:** **{LABEL_MAP.get(pred, 'Unknown')}** {'✅ Correct' if pred == true_label else '❌ Incorrect'}")
+                st.markdown(f"**RF Prediction:** **{LABEL_MAP.get(pred, 'Unknown')}** {'(Correct)' if pred == true_label else '(Incorrect)'}")
             else: # Neural Network
                 tab_sample = resources['X_test_tabular_nn'][idx].reshape(1,-1)
                 bert_sample = resources['X_test_bert_embeddings'][idx].reshape(1,-1)
                 comb_sample = np.hstack((tab_sample, bert_sample))
                 pred_nn = np.argmax(resources['nn_model'].predict(comb_sample)[0])
-                st.markdown(f"🧠 **NN Prediction:** **{LABEL_MAP.get(pred_nn, 'Unknown')}** {'✅ Correct' if pred_nn == true_label else '❌ Incorrect'}")
+                st.markdown(f"**NN Prediction:** **{LABEL_MAP.get(pred_nn, 'Unknown')}** {'(Correct)' if pred_nn == true_label else '(Incorrect)'}")
 
             if st.button("Show Confusion Matrix (Full Test Set)", key="show_cm_btn"):
                 fig, ax = plt.subplots()
