@@ -9,4 +9,5 @@ joblib==1.4.2
 networkx==3.3
 graphviz==0.20.1
 tensorflow==2.15.0
+tf-keras>=2.15.0
 transformers==4.40.1

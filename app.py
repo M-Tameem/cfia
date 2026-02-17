@@ -1,3 +1,8 @@
+import os
+
+# Must be set before any TensorFlow import (required for TF 2.16+ keras compatibility)
+os.environ['TF_USE_LEGACY_KERAS'] = '1'
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -6,25 +11,19 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
-import os
 from collections import defaultdict, Counter
-import graphviz # For graphtime.py visualization
+import graphviz
 import math
-import pickle # For newfrontend.py
-from datetime import datetime # For newfrontend.py
-from sklearn.metrics import confusion_matrix # For newfrontend.py
-import tensorflow as tf # For newfrontend.py
-from tensorflow.keras.models import Sequential # For newfrontend.py
-from tensorflow.keras.layers import Dense, Dropout, Input # For newfrontend.py
-from transformers import DistilBertTokenizer, TFDistilBertModel # For newfrontend.py
-import gc # For newfrontend.py
+import pickle
+from datetime import datetime
+from sklearn.metrics import confusion_matrix
+import tensorflow as tf
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Dropout, Input
+from transformers import DistilBertTokenizer, TFDistilBertModel
+import gc
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-
-# --- Environment Variable (from newfrontend.py) ---
-# This should be one of the first things set, before TensorFlow might be imported elsewhere implicitly
-os.environ['TF_USE_LEGACY_KERAS'] = '1'
 
 # --- Page Configuration (Call this once at the beginning) ---
 st.set_page_config(
@@ -37,7 +36,7 @@ st.set_page_config(
 # --- Constants and Helper Functions for Brand Association Analyzer (from graphtime.py) ---
 
 # Configuration for graphtime
-GT_DEFAULT_DATA_PATH = './cfia_analysis_output_v3/'
+GT_DEFAULT_DATA_PATH = './output/'
 GT_CONNECTIONS_FILE = 'cfia_brand_connections.csv'
 GT_ML_DATA_FILE = 'cfia_enhanced_dataset_ml.csv'
 GT_PRODUCT_SIMILARITY_THRESHOLD = 0.3
@@ -270,19 +269,19 @@ def gt_get_example_incidents(_ml_df, num_examples=GT_NUM_EXAMPLES_TO_SHOW):
 
 # --- Constants and Helper Functions for Recall Class Predictor (from newfrontend.py) ---
 
-# Filepaths for newfrontend
-NF_BASE_PREPROCESS_PATH = "preprocessed_data_recall_class"
-NF_BASE_OUTPUT_PATH = "cfia_analysis_output_v3"
+# Filepaths for the recall predictor module
+NF_BASE_PREPROCESS_PATH = "models/preprocessed"
+NF_BASE_OUTPUT_PATH = "output"
 NF_TFIDF_PREPROCESSOR_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "tfidf_preprocessor_rc.pkl")
 NF_TABULAR_PREPROCESSOR_NN_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "tabular_preprocessor_rc.pkl")
-NF_RF_MODEL_PATH = "rf_model_recall_class.pkl"
-NF_NN_MODEL_H5_PATH = "nn_model_recall_class.h5" # Used as weights and full model
-NF_NN_MODEL_KERAS_PATH = "nn_model_recall_class.keras" # Preferred full model format
+NF_RF_MODEL_PATH = "models/rf_model_recall_class.pkl"
+NF_NN_MODEL_H5_PATH = "models/nn_model_recall_class.h5"
+NF_NN_MODEL_KERAS_PATH = "models/nn_model_recall_class.keras"
 NF_X_TEST_TFIDF_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "X_test_tfidf_rc.pkl")
 NF_X_TEST_TABULAR_NN_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "X_test_tabular_rc.pkl")
 NF_X_TEST_BERT_EMBEDDINGS_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "X_test_bert_embeddings_rc.pkl")
 NF_Y_TEST_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "y_test_rc.pkl")
-NF_FULL_DATASET_PATH = os.path.join(NF_BASE_OUTPUT_PATH, "cfia_enhanced_dataset_ml.csv") # Note: This is same as GT_ML_DATA_FILE path
+NF_FULL_DATASET_PATH = os.path.join(NF_BASE_OUTPUT_PATH, "cfia_enhanced_dataset_ml.csv")
 
 NF_BERT_MODEL_NAME = 'distilbert-base-uncased'
 NF_LABEL_MAP = {0: "Class I (High Risk)", 1: "Class II (Moderate Risk)", 2: "Class III (Low Risk)"}
