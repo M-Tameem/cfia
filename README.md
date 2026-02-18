@@ -5,19 +5,19 @@ A Streamlit web application for analyzing Canadian Food Inspection Agency (CFIA)
 ## Features
 
 ### Brand Association Analyzer
-- **Direct associations** — given a brand, find all historically co-recalled brands ranked by a weighted score (connection strength, product similarity, contaminant match)
-- **Indirect connections** — second-degree traversal to surface brands linked through a shared intermediary
-- **Brand profiling and clustering** — K-Means clustering of brands by recall behavior (frequency, severity distribution, multi-brand rate)
-- **Interactive graph visualization** — Graphviz-rendered network of brand co-recall connections
-- **Multi-brand recall examples** — real incidents involving multiple simultaneous brands
+- **Direct associations** - given a brand, find all historically co-recalled brands ranked by a weighted score (connection strength, product similarity, contaminant match)
+- **Indirect connections** - second-degree traversal to surface brands linked through a shared intermediary
+- **Brand profiling and clustering** - K-Means clustering of brands by recall behavior (frequency, severity distribution, multi-brand rate)
+- **Interactive graph visualization** - Graphviz-rendered network of brand co-recall connections
+- **Multi-brand recall examples** - real incidents involving multiple simultaneous brands
 
 ### Recall Class Predictor
 - Predict whether a new recall will be **Class I** (high risk), **Class II** (moderate), or **Class III** (low)
 - Two model options:
-  - **Random Forest** — TF-IDF text features combined with tabular engineered features
-  - **Neural Network** — DistilBERT embeddings combined with tabular features (Keras)
-- **Test data explorer** — step through held-out examples and inspect per-sample predictions
-- **Confusion matrix** — full test-set evaluation for either model
+  - **Random Forest** - TF-IDF text features combined with tabular engineered features
+  - **Neural Network** - DistilBERT embeddings combined with tabular features (Keras)
+- **Test data explorer** - step through held-out examples and inspect per-sample predictions
+- **Confusion matrix** - full test-set evaluation for either model
 
 ## Dataset
 
@@ -70,7 +70,7 @@ cfia/
 
 ## Quick Start
 
-### Option 1 — Docker (recommended)
+### Option 1 - Docker (recommended)
 
 ```bash
 docker compose up
@@ -78,12 +78,12 @@ docker compose up
 
 Then open [http://localhost:8501](http://localhost:8501).
 
-### Option 2 — Local Python
+### Option 2 - Local Python
 
 ```bash
 # Clone the repository
-git clone https://github.com/M-Tameem/cfia.git
-cd cfia
+git clone https://github.com/M-Tameem/cfia-food-recall-ml.git
+cd cfia-food-recall-ml
 
 # Create and activate a virtual environment
 python -m venv .venv

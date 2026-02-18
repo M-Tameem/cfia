@@ -3,6 +3,8 @@ import os
 # Must be set before any TensorFlow import (required for TF 2.16+ keras compatibility)
 os.environ['TF_USE_LEGACY_KERAS'] = '1'
 
+_HERE = os.path.dirname(os.path.abspath(__file__))
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -35,7 +37,7 @@ st.set_page_config(
 # --- Constants and Helper Functions for Brand Association Analyzer (from graphtime.py) ---
 
 # Configuration for graphtime
-GT_DEFAULT_DATA_PATH = './output/'
+GT_DEFAULT_DATA_PATH = os.path.join(_HERE, 'output')
 GT_CONNECTIONS_FILE = 'cfia_brand_connections.csv'
 GT_ML_DATA_FILE = 'cfia_enhanced_dataset_ml.csv'
 GT_PRODUCT_SIMILARITY_THRESHOLD = 0.3
@@ -72,7 +74,7 @@ def gt_load_brand_graph(connections_path):
 def gt_load_ml_data(ml_data_path):
     if not os.path.exists(ml_data_path): return None
     try:
-        df = pd.read_csv(ml_data_path, parse_dates=['RECALL_DATE'], infer_datetime_format=True)
+        df = pd.read_csv(ml_data_path, parse_dates=['RECALL_DATE'])
         df['BRAND_NAME'] = df['BRAND_NAME'].astype(str).str.lower().str.strip()
         df['COMMON_NAME'] = df['COMMON_NAME'].astype(str).str.lower().str.strip()
         df['AREA_OF_CONCERN'] = df['AREA_OF_CONCERN'].astype(str).str.lower().str.strip()
@@ -269,13 +271,13 @@ def gt_get_example_incidents(_ml_df, num_examples=GT_NUM_EXAMPLES_TO_SHOW):
 # --- Constants and Helper Functions for Recall Class Predictor (from newfrontend.py) ---
 
 # Filepaths for the recall predictor module
-NF_BASE_PREPROCESS_PATH = "models/preprocessed"
-NF_BASE_OUTPUT_PATH = "output"
+NF_BASE_PREPROCESS_PATH = os.path.join(_HERE, 'models', 'preprocessed')
+NF_BASE_OUTPUT_PATH = os.path.join(_HERE, 'output')
 NF_TFIDF_PREPROCESSOR_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "tfidf_preprocessor_rc.pkl")
 NF_TABULAR_PREPROCESSOR_NN_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "tabular_preprocessor_rc.pkl")
-NF_RF_MODEL_PATH = "models/rf_model_recall_class.pkl"
-NF_NN_MODEL_H5_PATH = "models/nn_model_recall_class.h5"
-NF_NN_MODEL_KERAS_PATH = "models/nn_model_recall_class.keras"
+NF_RF_MODEL_PATH = os.path.join(_HERE, 'models', 'rf_model_recall_class.pkl')
+NF_NN_MODEL_H5_PATH = os.path.join(_HERE, 'models', 'nn_model_recall_class.h5')
+NF_NN_MODEL_KERAS_PATH = os.path.join(_HERE, 'models', 'nn_model_recall_class.keras')
 NF_X_TEST_TFIDF_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "X_test_tfidf_rc.pkl")
 NF_X_TEST_TABULAR_NN_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "X_test_tabular_rc.pkl")
 NF_X_TEST_BERT_EMBEDDINGS_PATH = os.path.join(NF_BASE_PREPROCESS_PATH, "X_test_bert_embeddings_rc.pkl")
