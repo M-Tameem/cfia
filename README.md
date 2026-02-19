@@ -2,6 +2,8 @@
 
 A Streamlit web application for analyzing Canadian Food Inspection Agency (CFIA) food recall data spanning 2011–2024. The suite combines interactive data exploration, brand association analysis, and machine learning-powered recall severity prediction.
 
+Test it out here! https://m-tameem-cfia-recall-analytics-ml.streamlit.app/
+
 ## Features
 
 ### Brand Association Analyzer
